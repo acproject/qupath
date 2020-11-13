@@ -1,4 +1,4 @@
-package qupath.lib.gui.tools.jpen.test
+package qupath.lib.gui.scripting.test
 
 import qupath.lib.images.servers.LabeledImageServer
 
