@@ -5,9 +5,16 @@ description = 'qupath-extension-script-editor'
 configurations {
   implementation.extendsFrom groovy
   implementation.extendsFrom richtextfx
-  implementation.extendsFrom jsonsimple
-  implementation.extendsFrom fastjson
-  implementation.extendsFrom gtgeojson
-  implementation.extendsFrom vividjts
 }
 
+def fastjsonVersion    = "1.2.73"
+def vividJtsVersion    = "1.13"
+def gtGeojsonVersion   = "24.0"
+def jsonSimpleVersion  = "1.1.1"
+
+dependencies {
+  implementation "com.alibaba:fastjson:${fastjsonVersion}"
+  implementation "com.googlecode.json-simple:json-simple:${jsonSimpleVersion}"
+  implementation "org.geotools:gt-geojson:${gtGeojsonVersion}"
+  implementation "com.vividsolutions:jts:${vividJtsVersion}"
+}

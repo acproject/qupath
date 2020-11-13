@@ -232,9 +232,10 @@ allprojects {
     javacppVersion     = '1.5.3'
     opencvVersion      = "4.3.0-${javacppVersion}"
     fastjsonVersion    = "1.2.73"
-    vividJtsVersion   = "1.13"
+    vividJtsVersion    = "1.13"
     gtGeojsonVersion   = "24.0"
     jsonSimpleVersion  = "1.1.1"
+    jaiCoreVersion     = "1.1.3"
     // Additional versions
     logbackVersion     = '1.2.3'
     slf4jVersion       = '1.3.0'
@@ -289,6 +290,7 @@ allprojects {
     fastjson
     gtgeojson
     vividjts
+    jaicore
   }
 
   dependencies {
@@ -319,7 +321,8 @@ allprojects {
     jsonsimple "com.googlecode.json-simple:json-simple:${jsonSimpleVersion}"
     gtgeojson "org.geotools:gt-geojson:${gtGeojsonVersion}"
     vividjts "com.vividsolutions:jts:${vividJtsVersion}"
-
+    jaicore "javax.media:jai_core:${jaiCoreVersion}"
+    
     controlsfx "org.controlsfx:controlsfx:${controlsfxVersion}",  { 
     	// ControlsFX 11.0.1 uses a linux classifier to bring in more JavaFX than it may need
     	exclude group: 'org.openjfx'
@@ -489,12 +492,17 @@ allprojects {
   targetCompatibility = javaVersion
 
   repositories {
+
+      maven {url 'https://repo.osgeo.org/repository/release/'}
+      jcenter()
+
     mavenLocal()
     mavenCentral()
 
     // May be required for snapshot ImageJ2 jars
     maven { url 'https://maven.imagej.net/content/groups/public' }
-    
+
+
     // geo
     maven { url 'https://repo.osgeo.org/repository/release/' }
 
