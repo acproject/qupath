@@ -1,26 +1,18 @@
-package qupath.lib.utils;
+package qupath.lib.gui.scripting.utils;
 
 import java.util.HashMap;
+import java.util.List;
 
-public class PointObject {
-    private double x;
-    private double y;
+public class MultiIPointObject {
+    private List<Double[]> points;
     private HashMap<String, Integer> spatialReference;
 
-    public double getX() {
-        return x;
+    public List<Double[]> getPoints() {
+        return points;
     }
 
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public double getY() {
-        return y;
-    }
-
-    public void setY(double y) {
-        this.y = y;
+    public void setPoints(List<Double[]> points) {
+        this.points = points;
     }
 
     public HashMap<String, Integer> getSpatialReference() {

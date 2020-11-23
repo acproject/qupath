@@ -9,7 +9,6 @@ import org.locationtech.jts.io.WKTReader;
 
 import java.io.StringWriter;
 import org.locationtech.jts.io.ParseException;
-import qupath.lib.utils.WKT;
 
 public class WKTUtil {
 

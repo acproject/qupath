@@ -1,4 +1,4 @@
-package qupath.lib.utils;
+package qupath.lib.gui.scripting.utils;
 
 import java.util.HashMap;
 import java.util.List;

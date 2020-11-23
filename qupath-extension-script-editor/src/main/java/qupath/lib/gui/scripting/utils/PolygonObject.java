@@ -1,18 +1,18 @@
-package qupath.lib.utils;
+package qupath.lib.gui.scripting.utils;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class MultiIPointObject {
-    private List<Double[]> points;
+public class PolygonObject {
+    private List<List<Double[]>> rings;
     private HashMap<String, Integer> spatialReference;
 
-    public List<Double[]> getPoints() {
-        return points;
+    public List<List<Double[]>> getRings() {
+        return rings;
     }
 
-    public void setPoints(List<Double[]> points) {
-        this.points = points;
+    public void setRings(List<List<Double[]>> rings) {
+        this.rings = rings;
     }
 
     public HashMap<String, Integer> getSpatialReference() {
