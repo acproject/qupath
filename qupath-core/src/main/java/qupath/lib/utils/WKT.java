@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Pattern;
 
 /** example:
  * String geoJson = WKT.getLINESTRINGWktToJson(prjShapeStr, wkid);
@@ -17,7 +18,7 @@ import java.util.List;
 public class WKT {
 
     /**
-     * 点 转换 JSON
+     * 转换 JSON
      * @param wkt
      * @param wkid
      * @return
@@ -37,7 +38,7 @@ public class WKT {
     }
 
     /**
-     * 多点 转换 JSON
+     * 转换JSON
      * @param wkt
      * @param wkid
      * @return
@@ -85,7 +86,7 @@ public class WKT {
     }
 
     /**
-     * 线 转换 JSON
+     * 转换 JSON
      * @param wkt
      * @param wkid
      * @return
@@ -114,12 +115,13 @@ public class WKT {
     }
 
     /**
-     * 多线 转换 JSON
+     * 转换 JSON
      * @param wkt
      * @param wkid
      * @return
      */
     public String getMULTILINESTRINGWktToJson(String wkt, int wkid) {
+        Pattern p = Pattern.compile("\\d+"); 
         MultLinesStringObject lineStringObject = new MultLinesStringObject();
         List<List<Double[]>> lists = new ArrayList<List<Double[]>>();
         String ToTailWkt = wkt.substring(0, wkt.length() - 1);
@@ -135,7 +137,7 @@ public class WKT {
                 String[] jItems = jItem.split(" ");
                 Double[] listResult = new Double[] {
                         Double.parseDouble(jItems[0]),
-                        Double.parseDouble(jItems[1]) };
+                        Double.parseDouble(jItems[1].replaceAll("\\)", "").replaceAll("POLYGON", "")) };
                 list.add(listResult);
             }
             lists.add(list);
@@ -149,12 +151,13 @@ public class WKT {
     }
 
     /**
-     * 多边形 转换 JSON
+     * 转换 JSON
      * @param wkt
      * @param wkid
      * @return
      */
     public String getPOLYGONWktToJson(String wkt, int wkid) {
+        Pattern p = Pattern.compile("\\d+"); 
         PolygonObject polygonObject = new PolygonObject();
         List<List<Double[]>> lists = new ArrayList<List<Double[]>>();
         String ToTailWkt = wkt.substring(0, wkt.length() - 1);
@@ -170,7 +173,7 @@ public class WKT {
                 String[] jItems = jItem.split(" ");
                 Double[] listResult = new Double[] {
                         Double.parseDouble(jItems[0]),
-                        Double.parseDouble(jItems[1]) };
+                        Double.parseDouble(jItems[1].replaceAll("\\)", "").replaceAll("\\.*[a-zA-Z].*", "")) };
                 list.add(listResult);
             }
             lists.add(list);
@@ -184,7 +187,7 @@ public class WKT {
     }
 
     /**
-     * 多个多边形 转换 JSON
+     * 转换 JSON
      * @param wkt
      * @param wkid
      * @return
@@ -203,13 +206,15 @@ public class WKT {
                 String item = strList[i].trim();
                 item = item.substring(1, item.length() - 1);
                 String[] items = item.split(",");
+                
                 List<Double[]> list = new ArrayList<Double[]>();
                 for (int j = 0; j < items.length; j++) {
                     String jItem = items[j].trim();
                     String[] jItems = jItem.split(" ");
                     Double[] listResult = new Double[] {
                             Double.parseDouble(jItems[0]),
-                            Double.parseDouble(jItems[1]) };
+                            
+                            Double.parseDouble(jItems[1].replaceAll("\\)", "").replaceAll("\\.*[a-zA-Z].*", "")) };
                     list.add(listResult);
                 }
                 lists.add(list);
