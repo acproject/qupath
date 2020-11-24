@@ -11,10 +11,14 @@ def fastjsonVersion    = "1.2.73"
 def vividJtsVersion    = "1.13"
 def gtGeojsonVersion   = "24.0"
 def jsonSimpleVersion  = "1.1.1"
+def geotoolsVersion    = "2.7-M2"
 
 dependencies {
   implementation "com.alibaba:fastjson:${fastjsonVersion}"
   implementation "com.googlecode.json-simple:json-simple:${jsonSimpleVersion}"
   implementation "org.geotools:gt-geojson:${gtGeojsonVersion}"
   implementation "com.vividsolutions:jts:${vividJtsVersion}"
+  implementation "org.geotools:gt-swing:${geotoolsVersion}"
+  implementation "org.geotools:gt-shapefile:${geotoolsVersion}"
+
 }

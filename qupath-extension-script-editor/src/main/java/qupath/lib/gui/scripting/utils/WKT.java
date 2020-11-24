@@ -214,7 +214,7 @@ public class WKT {
                     Double[] listResult = new Double[] {
                             Double.parseDouble(jItems[0]),
                             
-                            Double.parseDouble(jItems[1].replaceAll("\\)", "").replaceAll("\\.*[a-zA-Z].*", "")) };
+                            Double.parseDouble(jItems[1].replaceAll("\\)", "").replaceAll("POLYGON","")) };
                     list.add(listResult);
                 }
                 lists.add(list);
