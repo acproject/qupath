@@ -316,7 +316,7 @@ allprojects {
     commonstext "org.apache.commons:commons-text:${commonsTextVersion}"
 
     gson "com.google.code.gson:gson:${gsonVersion}"
-    // 增加新的java包用于标注集的转换
+    // 
     fastjson "com.alibaba:fastjson:${fastjsonVersion}"
     jsonsimple "com.googlecode.json-simple:json-simple:${jsonSimpleVersion}"
     gtgeojson "org.geotools:gt-geojson:${gtGeojsonVersion}"

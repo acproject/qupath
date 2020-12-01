@@ -2,10 +2,24 @@ ext.moduleName = 'qupath.core'
 
 description = 'qupath-core'
 
+def djlVersion  = '0.8.0'
+def djlPytorchNativeVersion = '1.6.0'
+
 configurations {
   api.extendsFrom gson
   api.extendsFrom jts
   implementation.extendsFrom commonsmath
   implementation.extendsFrom guava
   implementation.extendsFrom opencv
+
+}
+
+dependencies {
+  implementation "ai.djl:api:${djlVersion}"
+  implementation "ai.djl:model-zoo:${djlVersion}"
+  implementation "ai.djl:basicdataset:${djlVersion}"
+  implementation "ai.djl.pytorch:pytorch-engine:${djlVersion}"
+  implementation "ai.djl.pytorch:pytorch-model-zoo:${djlVersion}"
+  implementation "ai.djl.pytorch:pytorch-native-auto:${djlPytorchNativeVersion}"
+
 }
